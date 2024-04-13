@@ -1,25 +1,26 @@
 import React from 'react';
+import './login.css'; 
 
 const Login = () => {
   return (
-    <div className="container">
-    <div className="main">
+    <div class="login-container">
+    <div class="login-main">
       <input type="checkbox" id="chk" aria-hidden="true" />
-      <div className="login">
-        <form className="form">
+      <div class="login">
+        <form class="login-form">
           <label htmlFor="chk" aria-hidden="true">Login</label>
-          <input className="input" type="email" name="email" placeholder="Email" required />
-          <input className="input" type="password" name="pswd" placeholder="Senha" required />
+          <input class="input" type="email" name="email" placeholder="Email" required />
+          <input class="input" type="password" name="pswd" placeholder="Senha" required />
           <button>Login</button>
         </form>
       </div>
-      <div className="register">
-        <form className="form">
+      <div class="register">
+        <form class="login-form">
           <label htmlFor="chk" aria-hidden="true">Registre-se</label>
-          <input className="input" type="text" name="txt" placeholder="Nome" required />
-          <input className="input" type="email" name="email" placeholder="Email" required />
-          <input className="input" type="password" name="pswd" placeholder="Senha" required />
-          <input className="input" type="password" name="pswd" placeholder="Confirmação de senha" required />
+          <input class="input" type="text" name="txt" placeholder="Nome" required />
+          <input class="input" type="email" name="email" placeholder="Email" required />
+          <input class="input" type="password" name="pswd" placeholder="Senha" required />
+          <input class="input" type="password" name="pswd" placeholder="Confirmação de senha" required />
           <button>Registrar</button>
         </form>
       </div>
