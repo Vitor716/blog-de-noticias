@@ -1,10 +1,8 @@
-export const fetchPostsAndComments = async () => {
-    try {
-      const response = await fetch('./db.json');
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Erro ao buscar os posts e comentários:', error);
-      throw error;
-    }
-  };
+
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:3000' // Altere isso para a URL da sua API
+});
+
+export { api }; // Exporta a instância do Axios
