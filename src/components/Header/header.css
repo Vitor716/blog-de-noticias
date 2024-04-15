@@ -104,6 +104,8 @@
 	.nav.active .nav-list {
 		clip-path: circle(1500px at 90% -15%);
 		pointer-events: all;
+		position: absolute;
+		z-index: 7000;
 	}
 
 	.nav.active .nav-list a {
@@ -115,6 +117,7 @@
 		top: 26px;
 		right: 16px;
 		border-top-color: transparent;
+		z-index: 999999;
 	}
 
 	.nav.active .hamburger::before {

@@ -1,39 +1,38 @@
 import React, { useState } from 'react';
 import postData from '../../data/db.json';
-import './post.css'; 
-
+import './post.css';
 
 const Post = () => {
   const [selectedPost, setSelectedPost] = useState(null);
 
   const handlePostClick = (postId) => {
-    if (selectedPost === postId) {
-      setSelectedPost(null); // Se o post clicado já estiver selecionado, deseleciona-o
-    } else {
-      setSelectedPost(postId); // Caso contrário, define o post clicado como selecionado
-    }
+    setSelectedPost(selectedPost === postId ? null : postId);
   };
 
   return (
-    <div>
-      <h2>Posts</h2>
-      <ul>
-        {postData.posts.map(post => (
-          <li key={post.id} onClick={() => handlePostClick(post.id)} style={{ cursor: 'pointer' }}>
+    <div className="row">
+      {postData.posts.map(post => (
+        <div key={post.id} className="column">
+          <div className="card" onClick={() => handlePostClick(post.id)}>
             <h3>{post.title}</h3>
-            {selectedPost === post.id && ( /* Renderiza os comentários apenas se o post estiver selecionado */
-              <ul>
-                {postData.comments.filter(comment => comment.post_id === post.id).map(comment => (
-                  <li key={comment.id}>
-                    <p>{comment.comment}</p>
-                    <p>Por: {comment.username}</p>
-                  </li>
-                ))}
-              </ul>
+            <h3>{post.time_read}</h3>
+            <span>Clique para mais detalhes</span>
+            {selectedPost === post.id && (
+              <>
+                <div>{post.body}</div>
+                <ul>
+                  {postData.comments.filter(comment => comment.post_id === post.id).map(comment => (
+                    <li key={comment.id}>
+                      <p>{comment.comment}</p>
+                      <p>Por: {comment.username}</p>
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
-          </li>
-        ))}
-      </ul>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
